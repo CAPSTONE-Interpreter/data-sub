@@ -33,14 +33,11 @@ public class HomeActivity extends FragmentActivity {
                     case R.id.action1:
                         setFragment(0);
                         break;
-                    case R.id.action2:
+                    case R.id.action3:
                         setFragment(1);
                         break;
-                    case R.id.action3:
-                        setFragment(2);
-                        break;
                     case R.id.action4:
-                        setFragment(3);
+                        setFragment(2);
                         break;
                 }
                 return true;
@@ -60,10 +57,6 @@ public class HomeActivity extends FragmentActivity {
         switch (n) { //activity_initial 에 있는 FrameLayout 에 프래그먼트 삽입
             case 0:
                 ft.replace(R.id.main_frame, fragment1);
-                ft.commit(); //저장을 의미
-                break;
-            case 1:
-                ft.replace(R.id.main_frame, fragment2);
                 ft.commit(); //저장을 의미
                 break;
             case 2:
