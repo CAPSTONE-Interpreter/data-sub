@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#162226"
+    android:orientation="vertical"
+    tools:context=".RegisterActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:id="@+id/introLayout"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_marginTop="1dp"
+            android:background="#162226"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.7dp"
+                android:layout_centerInParent="true"
+                android:background="#000000" />
+
+            <TextView
+                android:id="@+id/introText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:fontFamily="@font/bmhannapro"
+                android:text="수어수어수어수어수어수어"
+                android:textColor="#ffffff"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/introText2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/introText"
+                android:layout_marginLeft="40dp"
+                android:fontFamily="@font/bmhannapro"
+                android:text="      쉽고 편리하게"
+                android:textColor="#ffffff"
+                android:textSize="30sp" />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.7dp"
+            android:layout_below="@+id/introLayout"
+            android:layout_centerInParent="true"
+            android:background="#ffffff" />
+        <!--        <ImageView-->
+        <!--            android:id="@+id/imageView"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="160dp"-->
+        <!--            android:layout_marginTop="20dp"-->
+        <!--            android:src="@drawable/clover" />-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/logotext"-->
+        <!--            android:layout_width="111dp"-->
+        <!--            android:layout_height="19dp"-->
+        <!--            android:layout_below="@+id/imageView"-->
+        <!--            android:layout_marginLeft="200dp"-->
+        <!--            android:background="#00000000"-->
+        <!--            android:text="자소서 작성 가이드"-->
+        <!--            android:textColor="#8FC6F1" />-->
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/introLayout"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="40dp"
+            android:orientation="vertical">
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/textView"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:text="회원가입"-->
+            <!--                android:textSize="25sp"-->
+            <!--                android:textStyle="bold"-->
+            <!--                android:layout_marginBottom="10dp"-->
+            <!--                app:layout_constraintBottom_toTopOf="@+id/join_name"-->
+            <!--                android:layout_gravity="center"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent" />-->
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#2C3D47"
+                android:colorControlActivated="#ffffff"
+                android:colorControlNormal="#AFAAAA"
+                android:ems="10"
+                android:hint="닉네임"
+                android:inputType="textPersonName"
+                android:textColor="#AFAAAA"
+                android:textColorHint="#AFAAAA" />
+
+            <EditText
+                android:id="@+id/editText2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_weight="1"
+                android:backgroundTint="#2C3D47"
+                android:colorControlActivated="#ffffff"
+                android:colorControlNormal="#AFAAAA"
+                android:ems="10"
+                android:hint="이메일"
+                android:inputType="textPersonName"
+                android:textColor="#AFAAAA"
+                android:textColorHint="#AFAAAA" />
+
+            <EditText
+                android:id="@+id/editText3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_weight="1"
+                android:backgroundTint="#2C3D47"
+                android:colorControlActivated="#ffffff"
+                android:colorControlNormal="#AFAAAA"
+                android:ems="10"
+                android:hint="비밀번호"
+                android:inputType="textPersonName"
+                android:password="true"
+                android:textColor="#AFAAAA"
+                android:textColorHint="#AFAAAA" />
+
+            <EditText
+                android:id="@+id/editText4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_weight="1"
+                android:backgroundTint="#2C3D47"
+                android:colorControlActivated="#ffffff"
+                android:colorControlNormal="#AFAAAA"
+                android:ems="10"
+                android:hint="비밀번호 확인"
+                android:inputType="textPersonName"
+                android:password="true"
+                android:textColor="#AFAAAA"
+                android:textColorHint="#AFAAAA" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/btn_background"
+        android:enabled="true"
+        android:text="가입"
+        android:textColor="#ffffff"
+        android:textColorHighlight="#ffffff"
+        android:textColorLink="#9CB5C8"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:typeface="monospace"
+        android:verticalScrollbarPosition="left" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/title"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_gravity="center_horizontal"-->
+        <!--            android:layout_marginTop="10dp"-->
+        <!--            android:fontFamily="@font/fonttt"-->
+        <!--            android:text="Clover"-->
+        <!--            android:textColor="#50B08E"-->
+        <!--            android:textColorHighlight="#66C251"-->
+        <!--            android:textColorLink="#34BF3A"-->
+        <!--            android:textSize="60sp"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/signin" />-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/subtitle"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_gravity="center_horizontal"-->
+        <!--            android:text="Your partner for a successful letter of instruction"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            android:layout_marginTop="60dp"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/title"-->
+        <!--            app:layout_constraintVertical_bias="0.17" />-->
+
+        <!--        <Button-->
+        <!--            android:id="@+id/postButton"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="post테스트용 버튼"-->
+        <!--            android:textColor="#0B0B0B" />-->
+
+        <!--        <Button-->
+        <!--            android:id="@+id/backButton"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_gravity="center_horizontal"-->
+        <!--            android:background="#00000000"-->
+        <!--            android:text="이전 화면으로"-->
+        <!--            android:textColorHighlight="#BED6C3"-->
+        <!--            android:textColorLink="#FFFFFF" />-->
+    </LinearLayout>
+</LinearLayout>

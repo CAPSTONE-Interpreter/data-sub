@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#162226"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btnImageSend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_x="3dp"
+        android:layout_y="681dp"
+        android:text="보내기"
+        android:layout_marginRight="4dp" />
+
+
+    <Button
+        android:id="@+id/btnImageSelection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이미지 선택"
+        />
+
+    <Button
+        android:id="@+id/gogo"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="apply"
+        android:textSize="14sp"
+        android:layout_marginTop="10dp"/>
+
+    <ImageView
+        android:id="@+id/imgViewSelected"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        />
+
+    <!--    <LinearLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="70dp"-->
+    <!--        android:orientation="vertical" />-->
+
+    <!--    <LinearLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:orientation="vertical"-->
+    <!--        android:paddingTop="10dp">-->
+    <!--        <LinearLayout-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:orientation="horizontal">-->
+
+    <!--            <Spinner-->
+    <!--                android:id="@+id/spinner"-->
+    <!--                android:layout_width="150dp"-->
+    <!--                android:layout_height="50dp"-->
+    <!--                android:layout_marginLeft="30dp"/>-->
+
+    <!--            <Spinner-->
+    <!--                android:id="@+id/spinner2"-->
+    <!--                android:layout_width="150dp"-->
+    <!--                android:layout_height="50dp"-->
+    <!--                android:layout_marginLeft="30dp"/>-->
+
+    <!--        </LinearLayout>-->
+    <!--        <LinearLayout-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:orientation="horizontal"-->
+    <!--            android:layout_gravity="center">-->
+    <!--            <EditText-->
+    <!--                android:id="@+id/search"-->
+    <!--                android:layout_width="200dp"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:paddingTop="30dp"-->
+    <!--                android:hint="키워드를 입력해주세요"-->
+    <!--                android:textSize="15sp"-->
+    <!--                android:layout_gravity="center"/>-->
+
+
+
+    <!--            &lt;!&ndash;        <ImageButton&ndash;&gt;-->
+    <!--            &lt;!&ndash;            android:id="@+id/search_button"&ndash;&gt;-->
+    <!--            &lt;!&ndash;            android:layout_width="50dp"&ndash;&gt;-->
+    <!--            &lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--            &lt;!&ndash;            android:layout_gravity="center"&ndash;&gt;-->
+    <!--            &lt;!&ndash;            android:text="확인"&ndash;&gt;-->
+    <!--            &lt;!&ndash;            android:elevation="40dp"&ndash;&gt;-->
+    <!--            &lt;!&ndash;            android:src="@drawable/ic_baseline_check_24"&ndash;&gt;-->
+    <!--            &lt;!&ndash;            android:background="#00000000"&ndash;&gt;-->
+    <!--            &lt;!&ndash;            android:layout_marginTop="10dp"/>&ndash;&gt;-->
+    <!--        </LinearLayout>-->
+
+    <!--        <LinearLayout-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:orientation="horizontal">-->
+    <!--            &lt;!&ndash;        android:fontFamily="@font/bmdohyeon"/>&ndash;&gt;-->
+
+
+    <!--            &lt;!&ndash;    <Button&ndash;&gt;-->
+    <!--            &lt;!&ndash;        android:id="@+id/reset_button"&ndash;&gt;-->
+    <!--            &lt;!&ndash;        android:layout_width="wrap_content"&ndash;&gt;-->
+    <!--            &lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--            &lt;!&ndash;        android:layout_gravity="center"&ndash;&gt;-->
+    <!--            &lt;!&ndash;        android:background="@drawable/bin_blue3"&ndash;&gt;-->
+    <!--            &lt;!&ndash;        android:text="초기화" />&ndash;&gt;-->
+
+    <!--        </LinearLayout>-->
+
+
+    <!--        &lt;!&ndash;        <TextView&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:id="@+id/serverText"&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:text="asdasd"&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:scrollbars="vertical"&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:textSize="8sp"/>&ndash;&gt;-->
+
+    <!--    </LinearLayout>-->
+
+    <!--    <androidx.recyclerview.widget.RecyclerView-->
+
+    <!--        android:id="@+id/recyclerView"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:layout_weight="1"-->
+    <!--        android:scrollbarFadeDuration="0"-->
+    <!--        android:scrollbarSize="5dp"-->
+    <!--        android:scrollbarThumbVertical="@android:color/darker_gray"-->
+    <!--        android:scrollbars="vertical">-->
+
+
+
+    <!--    </androidx.recyclerview.widget.RecyclerView>-->
+
+</LinearLayout>
