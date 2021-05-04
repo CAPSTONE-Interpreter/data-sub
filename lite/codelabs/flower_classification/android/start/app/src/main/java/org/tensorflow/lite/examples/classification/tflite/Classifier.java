@@ -72,7 +72,7 @@ public abstract class Classifier {
 
   /** An instance of the driver class to run model inference with Tensorflow Lite. */
   // TODO: Declare a TFLite interpreter
-
+  protected Interpreter tflite;
 
   /** Options for configuring the Interpreter. */
   private final Interpreter.Options tfliteOptions = new Interpreter.Options();
@@ -187,6 +187,7 @@ public abstract class Classifier {
     tfliteOptions.setNumThreads(numThreads);
 
     // TODO: Create a TFLite interpreter instance
+    tflite = new Interpreter(tfliteModel, tfliteOptions);
 
 
     // Loads labels out from the label file.
@@ -231,6 +232,7 @@ public abstract class Classifier {
     Trace.beginSection("runInference");
     long startTimeForReference = SystemClock.uptimeMillis();
     // TODO: Run TFLite inference
+    tflite.run(inputImageBuffer.getBuffer(), outputProbabilityBuffer.getBuffer().rewind());
 
     long endTimeForReference = SystemClock.uptimeMillis();
     Trace.endSection();
@@ -239,6 +241,9 @@ public abstract class Classifier {
     // Gets the map of label and probability.
     // TODO: Use TensorLabel from TFLite Support Library to associate the probabilities
     //       with category labels
+    Map<String, Float> labeledProbability =
+            new TensorLabel(labels, probabilityProcessor.process(outputProbabilityBuffer))
+                    .getMapWithFloatValue();
 
     Trace.endSection();
 
@@ -250,7 +255,8 @@ public abstract class Classifier {
   public void close() {
     if (tflite != null) {
       // TODO: Close the interpreter
-
+      tflite.close();
+      tflite = null;
     }
     // TODO: Close the GPU delegate
 
@@ -279,11 +285,11 @@ public abstract class Classifier {
     // TODO: Define an ImageProcessor from TFLite Support Library to do preprocessing
     ImageProcessor imageProcessor =
             new ImageProcessor.Builder()
-
-
-
-
-                .build();
+                    .add(new ResizeWithCropOrPadOp(cropSize, cropSize))
+                    .add(new ResizeOp(imageSizeX, imageSizeY, ResizeMethod.NEAREST_NEIGHBOR))
+                    .add(new Rot90Op(numRoration))
+                    .add(getPreprocessNormalizeOp())
+                    .build();
     return imageProcessor.process(inputImageBuffer);
   }
 

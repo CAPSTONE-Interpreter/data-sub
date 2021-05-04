@@ -21,6 +21,9 @@ android {
         }
     }
     // TODO: Add an option to avoid compressing TF Lite model file
+    aaptOptions {
+        noCompress "tflite"
+    }
 
     compileOptions {
         sourceCompatibility = '1.8'
@@ -28,6 +31,9 @@ android {
     }
     lintOptions {
         abortOnError false
+    }
+    buildFeatures {
+        mlModelBinding true
     }
 }
 
@@ -39,7 +45,13 @@ dependencies {
 
     // Build off of nightly TensorFlow Lite
     // TODO: Add TFLite dependencies
-
+    //implementation 'org.tensorflow:tensorflow-lite-metadata:0.1.0-rc2' //내가 추가
+    //implementation('org.tensorflow:tensorflow-lite:0.0.0-nightly') { changing = true }
+    // 다 -SNAPSHOT하기
+    implementation('org.tensorflow:tensorflow-lite:0.0.0-nightly-SNAPSHOT') { changing = true }
+    implementation('org.tensorflow:tensorflow-lite-gpu:0.0.0-nightly-SNAPSHOT') { changing = true }
+    implementation('org.tensorflow:tensorflow-lite-support:0.0.0-nightly-SNAPSHOT') { changing = true }
+    implementation 'org.tensorflow:tensorflow-lite-metadata:0.1.0-rc1'
     // Use local TensorFlow library
     // implementation 'org.tensorflow:tensorflow-lite-local:0.0.0'
 }
