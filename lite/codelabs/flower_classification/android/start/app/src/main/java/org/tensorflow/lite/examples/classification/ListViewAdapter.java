@@ -2,14 +2,17 @@ package org.tensorflow.lite.examples.classification;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import static org.tensorflow.lite.examples.classification.Fragment3.scarpList;
+//import static org.tensorflow.lite.examples.classification.Fragment3.scarpList;
+import static org.tensorflow.lite.examples.classification.TextSearch.scarpList;
 
 
 public class ListViewAdapter extends BaseAdapter {
@@ -43,21 +46,21 @@ public android.view.View getView(final int position, android.view.View convertVi
     final Context context = parent.getContext();
     thisContext = context;
 
-//    if(number == 0) {
+    if(number == 0) {
         // "listview_item" Layout을 inflate하여 convertView 참조 획득.
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.list_item, parent, false);
         }
         delete = (Button) convertView.findViewById(R.id.deleteButton);
-//        delete.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                listViewItemSearchList.remove(position);
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listViewItemSearchList.remove(position);
 //                scarpSearchList.remove(position);
-//                notifyDataSetChanged();
-//            }
-//        });
+                notifyDataSetChanged();
+            }
+        });
         // 화면에 표시될 View(Layout이 inflate된)으로부터 위젯에 대한 참조 획득
         android.widget.TextView textView = (android.widget.TextView) convertView.findViewById(R.id.textView);
         android.widget.TextView textView2 = (android.widget.TextView) convertView.findViewById(R.id.textView2);
@@ -65,37 +68,23 @@ public android.view.View getView(final int position, android.view.View convertVi
         SearchList searchListViewItem = listViewItemSearchList.get(position);
 
         textView.setText(searchListViewItem.getText());
-        textView2.setText(searchListViewItem.getUrl());
-//    }
-//    else{ // 유사 자소서
-//        if(convertView == null){
-//            LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//            convertView = inflater.inflate(R.layout.company_item,parent,false);
-//        }
-//        TextView textView = (TextView) convertView.findViewById(R.id.textView);
-//        TextView textView2 = (TextView) convertView.findViewById(R.id.textView2);
-//        rankImage = (ImageView)convertView.findViewById(R.id.rankImage);
-////            similarity = (TextView)convertView.findViewById(R.id.similarity);
-//
-//        Company listViewItem = listViewItemList.get(position);
-//        textView.setText(listViewItem.getCompany());
-//        textView2.setText(listViewItem.getQuestion());
-//
-//        if(position == 0){
-//            rankImage.setBackgroundResource(R.drawable.goldmedal);
-//        }
-//
-//        if(position == 1){
-//            rankImage.setBackgroundResource(R.drawable.silvermedal);
-//        }
-//
-//        if(position == 2){
-//            rankImage.setBackgroundResource(R.drawable.bronzemedal);
-//        }
-//
-////            similarity.setText(listViewItem.getSimilarity());
-//
-//    }
+//        textView2.setText(searchListViewItem.getUrl());
+    }
+    else{ // 유사 자소서
+        // "listview_item" Layout을 inflate하여 convertView 참조 획득.
+        if (convertView == null) {
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = inflater.inflate(R.layout.list_item2, parent, false);
+        }
+        // 화면에 표시될 View(Layout이 inflate된)으로부터 위젯에 대한 참조 획득
+        android.widget.TextView textView = (android.widget.TextView) convertView.findViewById(R.id.textView);
+        android.widget.TextView textView2 = (android.widget.TextView) convertView.findViewById(R.id.textView2);
+        // Data Set(filteredItemList)에서 position에 위치한 데이터 참조 획득
+        SearchList searchListViewItem = listViewItemSearchList.get(position);
+
+        textView.setText(searchListViewItem.getText());
+//        textView2.setText(searchListViewItem.getUrl());
+    }
     return convertView;
 }
 
@@ -104,10 +93,10 @@ public void setListViewItemList(){
     number = 0;
 }
 
-//public void setListViewItemList2(){
-//    listViewItemList = new ArrayList<>(similar);
-//    number = 1;
-//}
+public void setListViewItemList2(){
+    listViewItemSearchList = new ArrayList<>(scarpList);
+    number = 1;
+}
 
 public void clearItem(){
     listViewItemSearchList.clear();

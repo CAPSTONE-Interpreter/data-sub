@@ -60,15 +60,15 @@ public class PhotoSearch extends AppCompatActivity {
         });
         imageViewSelected = findViewById(R.id.imgViewSelected);
 
-        gogo = findViewById(R.id.gogo);
-        gogo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "로그인 되었습니다.", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(PhotoSearch.this, ShowActivity.class);
-                startActivity(intent);
-            }
-        });
+//        gogo = findViewById(R.id.gogo);
+//        gogo.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Toast.makeText(getApplicationContext(), "로그인 되었습니다.", Toast.LENGTH_LONG).show();
+//                Intent intent = new Intent(PhotoSearch.this, ShowActivity.class);
+//                startActivity(intent);
+//            }
+//        });
     }
 
     @Override

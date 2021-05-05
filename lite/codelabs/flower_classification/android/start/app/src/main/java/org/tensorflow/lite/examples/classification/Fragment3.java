@@ -32,6 +32,8 @@ public class Fragment3 extends Fragment {
         final Context context = view.getContext();
         scarpList = new ArrayList<>();
         scarpList.add(new SearchList("water", "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"));
+        scarpList.add(new SearchList("tree", "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"));
+
         //프래그먼트에 리스트뷰 추가
         listView = (ListView) view.findViewById(R.id.scrapView);
         listViewAdapter = new ListViewAdapter();

@@ -15,7 +15,6 @@ import androidx.fragment.app.Fragment;
 import java.util.ArrayList;
 
 public class Fragment2 extends Fragment {
-    private Button setList;
     private View view;
     static public ArrayList<SearchList> scarpList;
 
@@ -25,13 +24,6 @@ public class Fragment2 extends Fragment {
         view = inflater.inflate(R.layout.fragment_2, container, false);
         final Context context = view.getContext();
 
-        setList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, "비어있습니다.", Toast.LENGTH_SHORT).show();
-                scarpList.add(new SearchList("water", "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"));
-            }
-        });
 
         return view;
     }

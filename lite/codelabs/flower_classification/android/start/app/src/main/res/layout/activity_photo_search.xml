@@ -24,14 +24,14 @@
         android:text="이미지 선택"
         />
 
-    <Button
-        android:id="@+id/gogo"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="apply"
-        android:textSize="14sp"
-        android:layout_marginTop="10dp"/>
+<!--    <Button-->
+<!--        android:id="@+id/gogo"-->
+<!--        android:layout_width="70dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:text="apply"-->
+<!--        android:textSize="14sp"-->
+<!--        android:layout_marginTop="10dp"/>-->
 
     <ImageView
         android:id="@+id/imgViewSelected"
