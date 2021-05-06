@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
                 android:fontFamily="@font/bmhannapro"
-                android:text="수어수어수어수어수어수어"
+                android:text="수어번역"
                 android:textColor="#ffffff"
                 android:textSize="30sp" />
 

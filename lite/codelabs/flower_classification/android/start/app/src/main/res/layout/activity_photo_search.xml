@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#162226"
+    android:gravity="center"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
@@ -10,17 +11,20 @@
         android:id="@+id/btnImageSend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
-        android:layout_x="3dp"
+        android:background="#25343C"
+        android:layout_marginTop="20dp"
+        android:textColor="#ffffff"
         android:layout_y="681dp"
-        android:text="보내기"
-        android:layout_marginRight="4dp" />
+        android:text="보내기" />
 
 
     <Button
         android:id="@+id/btnImageSelection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:background="#25343C"
+        android:layout_marginTop="10dp"
         android:text="이미지 선택"
         />
 

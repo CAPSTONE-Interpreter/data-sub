@@ -39,7 +39,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="70dp"
             android:layout_gravity="center"
             android:background="#25343C"
             android:orientation="vertical">
@@ -63,12 +63,12 @@
                 android:textColor="#ffffff"
                 android:textSize="12sp" />
 
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="4dp"
-                android:background="@drawable/ic_baseline_settings_24" />
+<!--            <ImageButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginTop="4dp"-->
+<!--                android:background="@drawable/ic_baseline_settings_24" />-->
         </LinearLayout>
 
         <LinearLayout
@@ -116,7 +116,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/nmhanna"
                     android:layout_marginLeft="20dp"
-                    android:text="스크랩한 자소서   "
+                    android:text="스크랩한 수어   "
+                    android:textColor="#ffffff"
                     android:textSize="15sp" />
 
                 <TextView
@@ -124,6 +125,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="  0개"
+                    android:textColor="#ffffff"
                     android:textSize="13sp" />
 
             </LinearLayout>
@@ -146,7 +148,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:fontFamily="@font/nmhanna"
-                    android:text="내 자소서 관리   "
+                    android:text="서비스 소개"
+                    android:textColor="#ffffff"
                     android:textSize="15sp" />
 
             </LinearLayout>
@@ -192,7 +195,9 @@
                     android:fontFamily="@font/nmhanna"
                     android:paddingBottom="15dp"
                     android:layout_marginLeft="20dp"
-                    android:text="서비스 소개"
+                    android:text="개인 정보 수정   "
+
+                    android:textColor="#ffffff"
                     android:textSize="15sp" />
 
             </LinearLayout>
@@ -221,7 +226,7 @@
                 android:fontFamily="@font/bmdohyeon"
                 android:gravity="center"
                 android:text="3834"
-                android:textColor="#000000"
+                android:textColor="#ffffff"
                 android:textSize="30sp" />
 
             <TextView
