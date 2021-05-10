@@ -36,6 +36,8 @@ public class TextSearch extends AppCompatActivity {
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                FileUploadUtils.sendText("text");
 //                Intent intent = new Intent(getApplicationContext(), ShowActivity.class);
 //                startActivity(intent);
                 copyList = new ArrayList<>(scarpList);

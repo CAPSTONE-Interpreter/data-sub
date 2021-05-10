@@ -11,8 +11,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import static org.tensorflow.lite.examples.classification.Fragment3.scarpList;
-//import static org.tensorflow.lite.examples.classification.TextSearch.scarpList;
+//import static org.tensorflow.lite.examples.classification.Fragment3.scarpList;
+import static org.tensorflow.lite.examples.classification.TextSearch.scarpList;
 
 
 public class ListViewAdapter extends BaseAdapter {
