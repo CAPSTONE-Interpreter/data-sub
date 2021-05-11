@@ -2,6 +2,7 @@ package org.tensorflow.lite.examples.classification;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -34,21 +35,22 @@ import java.util.Date;
 
 public class PhotoSearch extends AppCompatActivity {
 
-    private Button gogo;
     private ImageView imageViewSelected;
-    private Button gallery, camera;
+    private Button gallery, camera, btnImageSend;
     private File tempSelectFile;
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo_search);
 
-        gallery = findViewById(R.id.btnImageSend);
-        gallery.setEnabled(false);
-        gallery.setOnClickListener(new View.OnClickListener() {
+        btnImageSend = findViewById(R.id.btnImageSend);
+        btnImageSend.setEnabled(false);
+        btnImageSend.setOnClickListener(new View.OnClickListener() {
                                        @Override
                                        public void onClick(View view) {
+                                           Log.d("태그","보내기");
                                            FileUploadUtils.sendImage(tempSelectFile);
                                        }
                                    }
@@ -113,7 +115,27 @@ public class PhotoSearch extends AppCompatActivity {
             Log.d("갤러리", "성공");
             Uri dataUri = data.getData();
             imageViewSelected.setImageURI(dataUri);
+            System.out.println(dataUri);
 
+            try {
+                InputStream in = getContentResolver().openInputStream(dataUri);
+                Bitmap image = BitmapFactory.decodeStream(in);
+                in.close();
+
+                String date = new SimpleDateFormat("yyyy_MM_dd_hh_mm_ss").format(new Date());
+                tempSelectFile = new File(Environment.getExternalStorageDirectory()+"/Pictures/Test/", "temp_" +date +".jpeg");
+                OutputStream out = new FileOutputStream(tempSelectFile);
+                image.compress(Bitmap.CompressFormat.JPEG, 100, out);}
+            catch (IOException ex){
+                ex.printStackTrace();
+            }
+
+
+            Log.d("갤러리", "경로");
+            System.out.println(tempSelectFile);
+//            System.out.println(getRealPathFromURI(dataUri));
+
+//            getRealPathFromURI(dataUri);
 //        try {
 //            InputStream in = getContentResolver().openInputStream(data.getData());
 //            Bitmap image = BitmapFactory.decodeStream(in);
@@ -124,33 +146,27 @@ public class PhotoSearch extends AppCompatActivity {
 //        }
 //        tempSelectFile = new File(Environment.getExternalStorageDirectory())
 
-            gallery.setEnabled(true);
+            btnImageSend.setEnabled(true);
 
         } else if (requestCode == 2 && resultCode == Activity.RESULT_OK && data.hasExtra("data")) {
             Log.d("카메라", "성공");
-
             Bitmap bitmap = (Bitmap) data.getExtras().get("data");
             if (bitmap != null) {
                 imageViewSelected.setImageBitmap(bitmap);
             }
-
         }
-
     }
 
-//    private String getRealPathFromURI(Uri contentURI){
-//        String result;
-//        Cursor cursor = getContentResolver().query(contentURI, null, null, null, null);
+//    public String getRealPathFromURI(Uri contentUri) {
 //
-//        if(cursor == null) {
-//            result = contentURI.getPath();
-//        }
-//        else{
-//            cursor.moveToFirst();
-//            int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
-//            result = cursor.getString(idx);
-//            cursor.close();
-//        }
-//        return result;
+//        String[] proj = { MediaStore.Images.Media.DATA };
+//
+//        Cursor cursor = getContentResolver().query(contentUri, proj, null, null, null);
+//        cursor.moveToNext();
+//        String path = cursor.getString(cursor.getColumnIndex(MediaStore.MediaColumns.DATA));
+//        Uri uri = Uri.fromFile(new File(path));
+//
+//        cursor.close();
+//        return path;
 //    }
 }

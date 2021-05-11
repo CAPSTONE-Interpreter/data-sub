@@ -16,6 +16,8 @@ import okhttp3.Response;
 public class FileUploadUtils {
     public static void sendImage(File file) {
         Log.v("태그", "메시지");
+        System.out.println(file);
+
 //        RequestBody requestBody = new MultipartBody.Builder()
 //                .setType(MultipartBody.FORM)
 //                .addFormDataPart("files", file.getName(), RequestBody.create(MultipartBody.FORM, file))
