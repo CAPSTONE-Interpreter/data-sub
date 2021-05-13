@@ -23,8 +23,6 @@ public class Fragment2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_2, container, false);
         final Context context = view.getContext();
-
-
         return view;
     }
 }
