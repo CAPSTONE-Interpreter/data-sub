@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.ViewCompat;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
+import me.relex.circleindicator.CircleIndicator3;
+
 
 import java.util.ArrayList;
 
@@ -21,6 +23,7 @@ public class TextSearch extends AppCompatActivity {
     private ListViewAdapter listViewAdapter;
     static public ArrayList<SearchList> scarpList;
     static public ArrayList<SearchList> copyList;
+    private CircleIndicator3 mIndicator;
 
     private ViewPager2 mPager;
     private FragmentStateAdapter pagerAdapter;
@@ -48,12 +51,12 @@ public class TextSearch extends AppCompatActivity {
         //Adapter
         pagerAdapter = new ListPageAdapter(this, num_page);
 
-        mPager.setAdapter(pagerAdapter);
+//        mPager.setAdapter(pagerAdapter);
 
         //Indicator
-//        mIndicator = findViewById(R.id.indicator);
-//        mIndicator.setViewPager(mPager);
-//        mIndicator.createIndicators(num_page,0);
+        mIndicator = findViewById(R.id.indicator);
+        mIndicator.setViewPager(mPager);
+        mIndicator.createIndicators(num_page,0);
 
         //ViewPager Setting
         mPager.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
@@ -72,7 +75,7 @@ public class TextSearch extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
-//                mIndicator.animatePageSelected(position%num_page);
+                mIndicator.animatePageSelected(position%num_page);
             }
 
         });
