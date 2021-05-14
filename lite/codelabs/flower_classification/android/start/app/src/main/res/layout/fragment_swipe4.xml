@@ -16,7 +16,8 @@
             android:id="@+id/imgBanner4"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#999999"/>
+            android:background="@drawable/btn_background"
+            />
 
         <TextView
             android:id="@+id/tvName4"
