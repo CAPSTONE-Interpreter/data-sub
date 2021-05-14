@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class TextSearch extends AppCompatActivity {
 
-    private Button submitBtn;
+    private Button submitBtn, submitBtn2;
     private ListView listView;
     private ListViewAdapter listViewAdapter;
     static public ArrayList<SearchList> scarpList;
@@ -55,6 +55,15 @@ public class TextSearch extends AppCompatActivity {
                         startActivity(intent);
                     }
                 });
+            }
+        });
+
+        submitBtn2 = findViewById(R.id.submitBtn2);
+        submitBtn2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(v.getContext(), MainActivity.class);
+                startActivity(intent);
             }
         });
     }
