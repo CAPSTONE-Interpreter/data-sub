@@ -25,7 +25,7 @@ public class FileUploadUtils {
                 .build();
 
         Request request = new Request.Builder()
-                .url("http://bb6be6b454ce.ngrok.io/api/post")
+                .url("http://b628abb51dd9.ngrok.io/test")
                 .post(requestBody)
                 .build();
 
@@ -51,14 +51,12 @@ public class FileUploadUtils {
 //                .setType(MultipartBody.FORM)
 //                .addFormDataPart("files", file.getName(), RequestBody.create(MultipartBody.FORM, file))
 //                .build();
-        RequestBody requestBody = new FormBody.Builder()
-                .add("key", text)
-                .build();
+//        RequestBody requestBody = new FormBody.Builder()
+//                .add("text", text)
+//                .build();
         Request request = new Request.Builder()
-//                .url("http://127.0.0.1:8000/app/hello/")
-
-                .url("http://bb6be6b454ce.ngrok.io/api/post")
-                .post(requestBody)
+                .url("http://b628abb51dd9.ngrok.io/video?text="+text)
+//                .post(requestBody)
                 .build();
         OkHttpClient client = new OkHttpClient();
         Log.v("태그", "pass");
@@ -75,4 +73,6 @@ public class FileUploadUtils {
             }
         });
     }
+
+
 }

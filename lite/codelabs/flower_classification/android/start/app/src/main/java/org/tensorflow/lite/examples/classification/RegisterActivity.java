@@ -39,7 +39,7 @@ public class RegisterActivity extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                new JSONTask().execute("http://52.78.80.31:4000/join");
+//                new JSONTask().execute("http://b628abb51dd9.ngrok.io/member/new");
                 showMessage();
             }
         });
@@ -128,6 +128,7 @@ public class RegisterActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result){
             super.onPostExecute(result);
+            System.out.println("result: "+result);
         }
     }
 }

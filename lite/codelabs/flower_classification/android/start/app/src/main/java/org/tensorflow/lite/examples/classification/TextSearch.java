@@ -1,6 +1,8 @@
 package org.tensorflow.lite.examples.classification;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -11,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.ViewCompat;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
+
 import me.relex.circleindicator.CircleIndicator3;
 
 
@@ -74,7 +77,7 @@ public class TextSearch extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
-                mIndicator.animatePageSelected(position%num_page);
+                mIndicator.animatePageSelected(position % num_page);
             }
 
         });
@@ -104,7 +107,13 @@ public class TextSearch extends AppCompatActivity {
 
                 mPager.setAdapter(pagerAdapter);
                 mIndicator.setViewPager(mPager);
-                mIndicator.createIndicators(num_page,0);
+                mIndicator.createIndicators(num_page, 0);
+
+
+                Log.d("태그", "보내기");
+                FileUploadUtils.sendText("aa");
+
+
 //                FileUploadUtils.sendText("text");
 ////                Intent intent = new Intent(getApplicationContext(), ShowActivity.class);
 ////                startActivity(intent);
