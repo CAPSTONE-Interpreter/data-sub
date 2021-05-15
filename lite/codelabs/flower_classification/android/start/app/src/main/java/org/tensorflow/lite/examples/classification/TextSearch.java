@@ -55,8 +55,7 @@ public class TextSearch extends AppCompatActivity {
 
         //Indicator
         mIndicator = findViewById(R.id.indicator);
-        mIndicator.setViewPager(mPager);
-        mIndicator.createIndicators(num_page,0);
+
 
         //ViewPager Setting
         mPager.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
@@ -104,6 +103,8 @@ public class TextSearch extends AppCompatActivity {
             public void onClick(View v) {
 
                 mPager.setAdapter(pagerAdapter);
+                mIndicator.setViewPager(mPager);
+                mIndicator.createIndicators(num_page,0);
 //                FileUploadUtils.sendText("text");
 ////                Intent intent = new Intent(getApplicationContext(), ShowActivity.class);
 ////                startActivity(intent);
