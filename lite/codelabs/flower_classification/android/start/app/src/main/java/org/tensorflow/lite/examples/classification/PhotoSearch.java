@@ -51,7 +51,7 @@ public class PhotoSearch extends AppCompatActivity {
                                        @Override
                                        public void onClick(View view) {
                                            Log.d("태그","보내기");
-                                           FileUploadUtils.sendImage(tempSelectFile);
+                                           FileUploadUtils.sendImage(new File("/sdcard/DCIM/Camera/qqq.png"));
                                        }
                                    }
         );
@@ -133,18 +133,7 @@ public class PhotoSearch extends AppCompatActivity {
 
             Log.d("갤러리", "경로");
             System.out.println(tempSelectFile);
-//            System.out.println(getRealPathFromURI(dataUri));
 
-//            getRealPathFromURI(dataUri);
-//        try {
-//            InputStream in = getContentResolver().openInputStream(data.getData());
-//            Bitmap image = BitmapFactory.decodeStream(in);
-//            imageViewSelected.setImageBitmap(image);
-//            in.close();
-//        } catch (IOException ioe) {
-//            ioe.printStackTrace();
-//        }
-//        tempSelectFile = new File(Environment.getExternalStorageDirectory())
 
             btnImageSend.setEnabled(true);
 
