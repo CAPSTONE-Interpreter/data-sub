@@ -75,7 +75,6 @@ public class RegisterActivity extends AppCompatActivity {
 
         OkHttpClient client = new OkHttpClient();
         MediaType JSON = MediaType.parse("application/json; charset=utf-8");
-        // put your json here
         RequestBody body = RequestBody.create(JSON, jsonObject.toString());
         Request request = new Request.Builder()
                 .url("http://b628abb51dd9.ngrok.io/members/new")
