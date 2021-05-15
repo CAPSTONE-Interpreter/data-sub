@@ -8,11 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Swipe1#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class Swipe1 extends Fragment {
     public Swipe1() {
         // Required empty public constructor
