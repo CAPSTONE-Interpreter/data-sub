@@ -55,7 +55,7 @@ public class FileUploadUtils {
 //                .add("text", text)
 //                .build();
         Request request = new Request.Builder()
-                .url("http://b628abb51dd9.ngrok.io/video?text="+text)
+                .url("http://b628abb51dd9.ngrok.io/videos?text="+text)
 //                .post(requestBody)
                 .build();
         OkHttpClient client = new OkHttpClient();

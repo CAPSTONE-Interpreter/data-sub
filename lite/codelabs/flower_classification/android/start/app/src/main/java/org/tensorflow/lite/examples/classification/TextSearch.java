@@ -111,7 +111,7 @@ public class TextSearch extends AppCompatActivity {
 
 
                 Log.d("태그", "보내기");
-                FileUploadUtils.sendText("aa");
+                FileUploadUtils.sendText("하늘");
 
 
 //                FileUploadUtils.sendText("text");
