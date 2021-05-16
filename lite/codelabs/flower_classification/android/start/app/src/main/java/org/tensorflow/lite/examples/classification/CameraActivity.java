@@ -113,10 +113,10 @@ public abstract class CameraActivity extends AppCompatActivity
       requestPermission();
     }
 
-    threadsTextView = findViewById(R.id.threads);
-    plusImageView = findViewById(R.id.plus);
-    minusImageView = findViewById(R.id.minus);
-    deviceSpinner = findViewById(R.id.device_spinner);
+//    threadsTextView = findViewById(R.id.threads);
+//    plusImageView = findViewById(R.id.plus);
+//    minusImageView = findViewById(R.id.minus);
+//    deviceSpinner = findViewById(R.id.device_spinner);
     bottomSheetLayout = findViewById(R.id.bottom_sheet_layout);
     gestureLayout = findViewById(R.id.gesture_layout);
     sheetBehavior = BottomSheetBehavior.from(bottomSheetLayout);
@@ -182,13 +182,13 @@ public abstract class CameraActivity extends AppCompatActivity
 //    rotationTextView = findViewById(R.id.rotation_info);
 //    inferenceTimeTextView = findViewById(R.id.inference_info);
 
-    deviceSpinner.setOnItemSelectedListener(this);
+//    deviceSpinner.setOnItemSelectedListener(this);
 
-    plusImageView.setOnClickListener(this);
-    minusImageView.setOnClickListener(this);
+//    plusImageView.setOnClickListener(this);
+//    minusImageView.setOnClickListener(this);
 
-    device = Device.valueOf(deviceSpinner.getSelectedItem().toString());
-    numThreads = Integer.parseInt(threadsTextView.getText().toString().trim());
+//    device = Device.valueOf(deviceSpinner.getSelectedItem().toString());
+//    numThreads = Integer.parseInt(threadsTextView.getText().toString().trim());
   }
 
   protected int[] getRgbBytes() {
@@ -571,9 +571,9 @@ public abstract class CameraActivity extends AppCompatActivity
       LOGGER.d("Updating  device: " + device);
       this.device = device;
       final boolean threadsEnabled = device == Device.CPU;
-      plusImageView.setEnabled(threadsEnabled);
-      minusImageView.setEnabled(threadsEnabled);
-      threadsTextView.setText(threadsEnabled ? String.valueOf(numThreads) : "N/A");
+//      plusImageView.setEnabled(threadsEnabled);
+//      minusImageView.setEnabled(threadsEnabled);
+//      threadsTextView.setText(threadsEnabled ? String.valueOf(numThreads) : "N/A");
       onInferenceConfigurationChanged();
     }
   }
@@ -602,28 +602,28 @@ public abstract class CameraActivity extends AppCompatActivity
 
   @Override
   public void onClick(View v) {
-    if (v.getId() == R.id.plus) {
-      String threads = threadsTextView.getText().toString().trim();
-      int numThreads = Integer.parseInt(threads);
-      if (numThreads >= 9) return;
-      setNumThreads(++numThreads);
-      threadsTextView.setText(String.valueOf(numThreads));
-    } else if (v.getId() == R.id.minus) {
-      String threads = threadsTextView.getText().toString().trim();
-      int numThreads = Integer.parseInt(threads);
-      if (numThreads == 1) {
-        return;
-      }
-      setNumThreads(--numThreads);
-      threadsTextView.setText(String.valueOf(numThreads));
-    }
+//    if (v.getId() == R.id.plus) {
+//      String threads = threadsTextView.getText().toString().trim();
+//      int numThreads = Integer.parseInt(threads);
+//      if (numThreads >= 9) return;
+//      setNumThreads(++numThreads);
+//      threadsTextView.setText(String.valueOf(numThreads));
+//    } else if (v.getId() == R.id.minus) {
+//      String threads = threadsTextView.getText().toString().trim();
+//      int numThreads = Integer.parseInt(threads);
+//      if (numThreads == 1) {
+//        return;
+//      }
+//      setNumThreads(--numThreads);
+//      threadsTextView.setText(String.valueOf(numThreads));
+//    }
   }
 
   @Override
   public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-    if (parent == deviceSpinner) {
-      setDevice(Device.valueOf(parent.getItemAtPosition(pos).toString()));
-    }
+//    if (parent == deviceSpinner) {
+//      setDevice(Device.valueOf(parent.getItemAtPosition(pos).toString()));
+//    }
   }
 
   @Override
