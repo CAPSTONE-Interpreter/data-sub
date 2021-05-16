@@ -77,7 +77,7 @@ public class RegisterActivity extends AppCompatActivity {
         MediaType JSON = MediaType.parse("application/json; charset=utf-8");
         RequestBody body = RequestBody.create(JSON, jsonObject.toString());
         Request request = new Request.Builder()
-                .url("http://b628abb51dd9.ngrok.io/members/new")
+                .url("http://ec2-3-36-221-249.ap-northeast-2.compute.amazonaws.com:8080/members/new")
                 .post(body)
                 .build();
 
