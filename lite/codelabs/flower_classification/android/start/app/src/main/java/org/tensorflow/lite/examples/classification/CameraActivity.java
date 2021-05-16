@@ -41,6 +41,7 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -80,12 +81,14 @@ public abstract class CameraActivity extends AppCompatActivity
   private LinearLayout bottomSheetLayout;
   private LinearLayout gestureLayout;
   private BottomSheetBehavior<LinearLayout> sheetBehavior;
+  private Button addBtn;
   protected TextView recognitionTextView,
       recognition1TextView,
       recognition2TextView,
       recognitionValueTextView,
       recognition1ValueTextView,
-      recognition2ValueTextView;
+      recognition2ValueTextView,
+  result;
   protected TextView frameValueTextView,
       cropValueTextView,
       cameraResolutionTextView,
@@ -169,12 +172,21 @@ public abstract class CameraActivity extends AppCompatActivity
           public void onSlide(@NonNull View bottomSheet, float slideOffset) {}
         });
 
+    addBtn = findViewById(R.id.addBtn);
+    result = findViewById(R.id.result);
     recognitionTextView = findViewById(R.id.detected_item);
     recognitionValueTextView = findViewById(R.id.detected_item_value);
     recognition1TextView = findViewById(R.id.detected_item1);
     recognition1ValueTextView = findViewById(R.id.detected_item1_value);
     recognition2TextView = findViewById(R.id.detected_item2);
     recognition2ValueTextView = findViewById(R.id.detected_item2_value);
+
+    addBtn.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        result.append(recognitionTextView.getText());
+      }
+    });
 
 //    frameValueTextView = findViewById(R.id.frame_info);
 //    cropValueTextView = findViewById(R.id.crop_info);
