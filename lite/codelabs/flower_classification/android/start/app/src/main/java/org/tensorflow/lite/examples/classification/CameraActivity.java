@@ -176,11 +176,11 @@ public abstract class CameraActivity extends AppCompatActivity
     recognition2TextView = findViewById(R.id.detected_item2);
     recognition2ValueTextView = findViewById(R.id.detected_item2_value);
 
-    frameValueTextView = findViewById(R.id.frame_info);
-    cropValueTextView = findViewById(R.id.crop_info);
-    cameraResolutionTextView = findViewById(R.id.view_info);
-    rotationTextView = findViewById(R.id.rotation_info);
-    inferenceTimeTextView = findViewById(R.id.inference_info);
+//    frameValueTextView = findViewById(R.id.frame_info);
+//    cropValueTextView = findViewById(R.id.crop_info);
+//    cameraResolutionTextView = findViewById(R.id.view_info);
+//    rotationTextView = findViewById(R.id.rotation_info);
+//    inferenceTimeTextView = findViewById(R.id.inference_info);
 
     deviceSpinner.setOnItemSelectedListener(this);
 
@@ -543,23 +543,23 @@ public abstract class CameraActivity extends AppCompatActivity
   }
 
   protected void showFrameInfo(String frameInfo) {
-    frameValueTextView.setText(frameInfo);
+//    frameValueTextView.setText(frameInfo);
   }
 
   protected void showCropInfo(String cropInfo) {
-    cropValueTextView.setText(cropInfo);
+//    cropValueTextView.setText(cropInfo);
   }
 
   protected void showCameraResolution(String cameraInfo) {
-    cameraResolutionTextView.setText(cameraInfo);
+//    cameraResolutionTextView.setText(cameraInfo);
   }
 
   protected void showRotationInfo(String rotation) {
-    rotationTextView.setText(rotation);
+//    rotationTextView.setText(rotation);
   }
 
   protected void showInference(String inferenceTime) {
-    inferenceTimeTextView.setText(inferenceTime);
+//    inferenceTimeTextView.setText(inferenceTime);
   }
 
   protected Device getDevice() {
