@@ -4,10 +4,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 import androidx.appcompat.app.AlertDialog;
@@ -40,6 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     Button registerButton;
     private static EditText editText, editText2, editText3, editText4;
+    private String type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,14 +51,15 @@ public class RegisterActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_register);
         registerButton = findViewById(R.id.registerButton);
-        registerButton.setOnClickListener(new View.OnClickListener(){
+        registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 sendRegisterInfo();
-                showMessage();
+//                showMessage("true");
             }
         });
     }
+
 
     public void sendRegisterInfo() {
         Log.v("태그", "메시지");
@@ -80,8 +85,6 @@ public class RegisterActivity extends AppCompatActivity {
                 .url("http://ec2-3-36-221-249.ap-northeast-2.compute.amazonaws.com:8080/members/new")
                 .post(body)
                 .build();
-
-        Log.v("태그", "pass");
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -92,23 +95,63 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 Log.d("TEST : ", response.body().string());
+//                String resp = response.body().string();
+                Handler mHandler = new Handler(Looper.getMainLooper());
+                mHandler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+//                            if (resp == "true") {
+                                Toast.makeText(getApplicationContext(), "회원가입 성공", Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                                startActivity(intent);
+                                Toast.makeText(getApplicationContext(), "회원가입 실패", Toast.LENGTH_LONG).show();
+//                            }
+                        }
+                }, 0);
+
+
+//                type = response.body().string();
             }
         });
+
+
     }
 
-    private void showMessage(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("안내");
-        builder.setMessage("회원 가입이 완료되었습니다");
-        builder.setIcon(android.R.drawable.ic_dialog_alert);
-
-        builder.setPositiveButton("확인", new DialogInterface.OnClickListener(){
-            public void onClick(DialogInterface dialog, int which){
-                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-                startActivity(intent);
-            }
-        });
-        AlertDialog dialog = builder.create();
-        dialog.show();
-    }
+//    private void showMessage(String type) {
+//
+//        if (type == "true") {
+//
+//            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//            builder.setTitle("안내");
+//            builder.setMessage("회원 가입이 완료되었습니다");
+//            builder.setIcon(android.R.drawable.ic_dialog_alert);
+//
+//            builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+//                public void onClick(DialogInterface dialog, int which) {
+////                    Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+////                    startActivity(intent);
+//                }
+//            });
+//
+//            AlertDialog dialog = builder.create();
+//            dialog.show();
+//
+//
+//        } else {
+//            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//            builder.setTitle("안내");
+//            builder.setMessage("회원 정보를 다시 입력해주세요");
+//            builder.setIcon(android.R.drawable.ic_dialog_alert);
+//
+//            builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+//                public void onClick(DialogInterface dialog, int which) {
+//
+//                }
+//            });
+//
+//            AlertDialog dialog = builder.create();
+//            dialog.show();
+//
+//        }
+//    }
 }

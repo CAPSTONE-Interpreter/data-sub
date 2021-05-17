@@ -25,7 +25,7 @@ public class FileUploadUtils {
                 .build();
 
         Request request = new Request.Builder()
-                .url("http://b628abb51dd9.ngrok.io/test")
+                .url("http://ec2-3-36-221-249.ap-northeast-2.compute.amazonaws.com:8080/test")
                 .post(requestBody)
                 .build();
 
@@ -55,7 +55,7 @@ public class FileUploadUtils {
 //                .add("text", text)
 //                .build();
         Request request = new Request.Builder()
-                .url("http://b628abb51dd9.ngrok.io/videos?text="+text)
+                .url("http://ec2-3-36-221-249.ap-northeast-2.compute.amazonaws.com:8080/videos?text="+text)
 //                .post(requestBody)
                 .build();
         OkHttpClient client = new OkHttpClient();
