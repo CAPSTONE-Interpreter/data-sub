@@ -1,4 +1,4 @@
-package org.tensorflow.lite.examples.classification;
+    package org.tensorflow.lite.examples.classification;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -19,7 +20,7 @@ import me.relex.circleindicator.CircleIndicator3;
 
 import java.util.ArrayList;
 
-public class TextSearch extends AppCompatActivity {
+public class    TextSearch extends AppCompatActivity {
 
     private Button submitBtn;
     private ListView listView;
@@ -27,6 +28,7 @@ public class TextSearch extends AppCompatActivity {
     static public ArrayList<SearchList> scarpList;
     static public ArrayList<SearchList> copyList;
     private CircleIndicator3 mIndicator;
+    private EditText textLine;
 
     private ViewPager2 mPager;
     private FragmentStateAdapter pagerAdapter;
@@ -37,6 +39,7 @@ public class TextSearch extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_text_search);
 
+        textLine = findViewById(R.id.textLine);
 
         scarpList = new ArrayList<>();
         scarpList.add(new SearchList("water", "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"));
@@ -109,9 +112,10 @@ public class TextSearch extends AppCompatActivity {
                 mIndicator.setViewPager(mPager);
                 mIndicator.createIndicators(num_page, 0);
 
+                String sendText = textLine.getText().toString();
+                Log.d("calling", sendText);
 
-                Log.d("태그", "보내기");
-                FileUploadUtils.sendText("하늘");
+                FileUploadUtils.sendText(sendText);
 
 
 //                FileUploadUtils.sendText("text");

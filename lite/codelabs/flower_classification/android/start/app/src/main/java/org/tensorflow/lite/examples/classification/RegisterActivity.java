@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 import androidx.appcompat.app.AlertDialog;
@@ -47,11 +48,11 @@ public class RegisterActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_register);
         registerButton = findViewById(R.id.registerButton);
-        registerButton.setOnClickListener(new View.OnClickListener(){
+        registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 sendRegisterInfo();
-                showMessage();
+//                showMessage();
             }
         });
     }
@@ -91,19 +92,27 @@ public class RegisterActivity extends AppCompatActivity {
             //          Callback function to check data returned
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                Log.d("asd","zczczxc");
                 Log.d("TEST : ", response.body().string());
+                if(response.body().string() == "true"){
+                    Log.d("TEST", "성공");
+                }
+               else{
+                   Log.d("TEST","실패");
+                }
+
             }
         });
     }
 
-    private void showMessage(){
+    private void showMessage() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("안내");
         builder.setMessage("회원 가입이 완료되었습니다");
         builder.setIcon(android.R.drawable.ic_dialog_alert);
 
-        builder.setPositiveButton("확인", new DialogInterface.OnClickListener(){
-            public void onClick(DialogInterface dialog, int which){
+        builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
                 Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                 startActivity(intent);
             }

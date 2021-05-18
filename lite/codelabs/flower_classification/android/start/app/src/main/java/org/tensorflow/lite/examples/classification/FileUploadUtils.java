@@ -25,7 +25,7 @@ public class FileUploadUtils {
                 .build();
 
         Request request = new Request.Builder()
-                .url("http://b628abb51dd9.ngrok.io/test")
+                .url("http://ec2-3-36-221-249.ap-northeast-2.compute.amazonaws.com:8080/test")
                 .post(requestBody)
                 .build();
 
@@ -46,17 +46,31 @@ public class FileUploadUtils {
     }
 
     public static void sendText(String text) {
-        Log.v("태그", "메시지");
-//        RequestBody requestBody = new MultipartBody.Builder()
-//                .setType(MultipartBody.FORM)
-//                .addFormDataPart("files", file.getName(), RequestBody.create(MultipartBody.FORM, file))
-//                .build();
-//        RequestBody requestBody = new FormBody.Builder()
-//                .add("text", text)
-//                .build();
+        Log.v("called", text);
         Request request = new Request.Builder()
-                .url("http://b628abb51dd9.ngrok.io/videos?text="+text)
-//                .post(requestBody)
+                .url("http://ec2-3-36-221-249.ap-northeast-2.compute.amazonaws.com:8080/videos?text=" + text)
+                .build();
+        OkHttpClient client = new OkHttpClient();
+        Log.v("태그", client.toString());
+        Log.v("태그", text);
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            //          Callback function to check data returned
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                Log.d("TEST : ", response.body().string());
+            }
+        });
+    }
+
+    public static void sendTextMotion(String text) {
+        Log.v("called", text);
+        Request request = new Request.Builder()
+                .url("http://ec2-3-36-221-249.ap-northeast-2.compute.amazonaws.com:8080/translate?word="+text)
                 .build();
         OkHttpClient client = new OkHttpClient();
         Log.v("태그", "pass");
@@ -73,6 +87,5 @@ public class FileUploadUtils {
             }
         });
     }
-
 
 }

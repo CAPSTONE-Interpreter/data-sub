@@ -15,7 +15,7 @@ import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
 
-public class Fragment3 extends Fragment {
+public class    Fragment3 extends Fragment {
     private View view;
     private Button scrapButton;
 

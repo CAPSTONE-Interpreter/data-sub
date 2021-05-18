@@ -13,8 +13,8 @@
         android:layout_height="@dimen/frameSize"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/imgBanner1"
+        <ImageButton
+            android:id="@+id/imageButton1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/btn_background2"
