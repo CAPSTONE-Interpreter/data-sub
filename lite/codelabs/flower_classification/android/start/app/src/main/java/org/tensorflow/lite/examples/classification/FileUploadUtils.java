@@ -48,7 +48,12 @@ public class FileUploadUtils {
     public static void sendText(String text) {
         Log.v("called", text);
         Request request = new Request.Builder()
+<<<<<<< HEAD
                 .url("http://ec2-3-36-221-249.ap-northeast-2.compute.amazonaws.com:8080/videos?text=" + text)
+=======
+                .url("http://ec2-3-36-221-249.ap-northeast-2.compute.amazonaws.com:8080/videos?text="+text)
+//                .post(requestBody)
+>>>>>>> 019f09fdcb3e3b557dbdf4ff80c77b01974f78da
                 .build();
         OkHttpClient client = new OkHttpClient();
         Log.v("태그", client.toString());
