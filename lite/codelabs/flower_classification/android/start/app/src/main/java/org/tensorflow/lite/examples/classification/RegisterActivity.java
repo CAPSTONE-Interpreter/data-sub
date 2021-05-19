@@ -55,11 +55,8 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 sendRegisterInfo();
-<<<<<<< HEAD
 //                showMessage();
-=======
 //                showMessage("true");
->>>>>>> 019f09fdcb3e3b557dbdf4ff80c77b01974f78da
             }
         });
     }
@@ -98,38 +95,34 @@ public class RegisterActivity extends AppCompatActivity {
             //          Callback function to check data returned
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                Log.d("asd","zczczxc");
+                Log.d("asd", "zczczxc");
                 Log.d("TEST : ", response.body().string());
-<<<<<<< HEAD
-                if(response.body().string() == "true"){
+                if (response.body().string() == "true") {
                     Log.d("TEST", "성공");
-                }
-               else{
-                   Log.d("TEST","실패");
+                } else {
+                    Log.d("TEST", "실패");
                 }
 
-=======
 //                String resp = response.body().string();
                 Handler mHandler = new Handler(Looper.getMainLooper());
                 mHandler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
 //                            if (resp == "true") {
-                                Toast.makeText(getApplicationContext(), "회원가입 성공", Toast.LENGTH_LONG).show();
-                                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-                                startActivity(intent);
-                                Toast.makeText(getApplicationContext(), "회원가입 실패", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "회원가입 성공", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                        startActivity(intent);
+                        Toast.makeText(getApplicationContext(), "회원가입 실패", Toast.LENGTH_LONG).show();
 //                            }
-                        }
+                    }
                 }, 0);
 
 
 //                type = response.body().string();
->>>>>>> 019f09fdcb3e3b557dbdf4ff80c77b01974f78da
             }
         });
+    }
 
-<<<<<<< HEAD
     private void showMessage() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("안내");
@@ -144,9 +137,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
         AlertDialog dialog = builder.create();
         dialog.show();
-=======
 
->>>>>>> 019f09fdcb3e3b557dbdf4ff80c77b01974f78da
     }
 
 //    private void showMessage(String type) {
