@@ -19,14 +19,19 @@ public class FileUploadUtils {
         Log.v("태그", "메시지");
         System.out.println(file);
 
-        RequestBody requestBody = new MultipartBody.Builder()
-                .setType(MultipartBody.FORM)
-                .addFormDataPart("files", file.getName(), RequestBody.create(MultipartBody.FORM, file))
-                .build();
+//        RequestBody requestBody = new MultipartBody.Builder()
+//                .setType(MultipartBody.FORM)
+//                .addFormDataPart("files", file.getName(), RequestBody.create(MultipartBody.FORM, file))
+//                .build();
+//
+//        Request request = new Request.Builder()
+//                .url("http://ec2-3-36-221-249.ap-northeast-2.compute.amazonaws.com:8080/test")
+//                .post(requestBody)
+//                .build();
 
         Request request = new Request.Builder()
-                .url("http://ec2-3-36-221-249.ap-northeast-2.compute.amazonaws.com:8080/test")
-                .post(requestBody)
+                .url("http://ec2-3-36-221-249.ap-northeast-2.compute.amazonaws.com:8080/videos?text=하늘")
+//                .post(requestBody):
                 .build();
 
         OkHttpClient client = new OkHttpClient();
