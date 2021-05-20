@@ -139,6 +139,14 @@
             android:layout_height="wrap_content"
             android:text="번역하기">
         </Button>
+
+<!--        <TextView-->
+<!--            android:id="@+id/resultView"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="aa"-->
+<!--            >-->
+<!--        </TextView>-->
     </LinearLayout>
     <!--    <LinearLayout-->
     <!--        android:layout_width="match_parent"-->

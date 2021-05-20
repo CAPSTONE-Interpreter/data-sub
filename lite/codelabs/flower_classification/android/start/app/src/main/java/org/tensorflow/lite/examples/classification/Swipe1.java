@@ -24,13 +24,13 @@ public class Swipe1 extends Fragment {
                              Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_swipe1,container,false);
 
-        button = view.findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Log.d("zz","qqqq");
-            }
-        });
+//        button = view.findViewById(R.id.button);
+//        button.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v) {
+//                Log.d("zz","qqqq");
+//            }
+//        });
 
         imageButton1 = view.findViewById(R.id.imageButton1);
         imageButton1.setOnClickListener(new View.OnClickListener(){
