@@ -51,7 +51,6 @@ public class    TextSearch extends AppCompatActivity {
 
         submitBtn = findViewById(R.id.submitBtn);
 
-
         //ViewPager2
         mPager = findViewById(R.id.viewpager);
         //Adapter
