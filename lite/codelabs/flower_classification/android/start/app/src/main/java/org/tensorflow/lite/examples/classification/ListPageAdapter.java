@@ -14,8 +14,9 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import static org.tensorflow.lite.examples.classification.TextSearch.scarpList;
+import static org.tensorflow.lite.examples.classification.TextSearch.indexNum;
 
-//import static org.tensorflow.lite.examples.classification.Fragment3.scarpList;
+
 
 
 public class ListPageAdapter extends FragmentStateAdapter {
@@ -34,11 +35,26 @@ public class ListPageAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         int index = getRealPosition(position);
 
-        if(index==0) return new Swipe1();
-        else if(index==1) return new Swipe2();
-        else if(index==2) return new Swipe3();
-        else if(index==3) return new Swipe4();
-        else return new Swipe5();
+        if(index==0) {
+//            indexNum = index;
+            return new Swipe1();
+        }
+        else if(index==1){
+//            indexNum = index;
+            return new Swipe2();
+        }
+        else if(index==2) {
+//            indexNum = 2;
+            return new Swipe3();
+        }
+        else if(index==3) {
+//            indexNum = index;
+            return new Swipe4();
+        }
+        else {
+//            indexNum = index;
+            return new Swipe5();
+        }
 
     }
 

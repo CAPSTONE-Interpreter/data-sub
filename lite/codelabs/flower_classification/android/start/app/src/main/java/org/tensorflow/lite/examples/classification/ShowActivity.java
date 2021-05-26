@@ -23,6 +23,10 @@ public class ShowActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show);
         videoView = findViewById(R.id.screenVideoView);
+
+        Intent intent = getIntent();
+        String url = intent.getStringExtra("url");
+
         Uri videoUri = Uri.parse("http://sldict.korean.go.kr/multimedia/multimedia_files/convert/20160107/241975/MOV000254400_700X466.webm");
 
 //      컨트롤바 붙여주는 작업

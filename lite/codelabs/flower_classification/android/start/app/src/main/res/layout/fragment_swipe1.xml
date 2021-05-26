@@ -6,7 +6,9 @@
     android:background="#162226"
     tools:context=".Swipe1">
 
+
     <RelativeLayout
+        android:id="@+id/rl"
         android:layout_width="match_parent"
         android:layout_marginLeft="@dimen/pageMarginAndOffset"
         android:layout_marginRight="@dimen/pageMarginAndOffset"
@@ -17,7 +19,7 @@
             android:id="@+id/imageButton1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/btn_background2"
+            android:background="#ffcccc"
             />
 
         <TextView

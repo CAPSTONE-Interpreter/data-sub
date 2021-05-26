@@ -1,6 +1,9 @@
 package org.tensorflow.lite.examples.classification;
 
+import android.text.TextUtils;
 import android.util.Log;
+
+import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,6 +16,9 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+
+import static org.tensorflow.lite.examples.classification.TextSearch.urls;
+
 
 public class FileUploadUtils {
     public static void sendImage(File file) {
@@ -68,7 +74,14 @@ public class FileUploadUtils {
             //          Callback function to check data returned
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                Log.d("TEST : ", response.body().string());
+                final String strJsonOutput = response.body().string();
+                Log.d("TEST : ", strJsonOutput);
+                urls.add(new URL("소나무, 솔", "https://sldict.korean.go.kr/multimedia/multimedia_files/convert/20160107/241975/MOV000254400_700X466.webm"));
+                urls.add(new URL("나무, 수목", "https://sldict.korean.go.kr/multimedia/multimedia_files/convert/20191007/624819/MOV000248680_700X466.webm"));
+                Log.d("text : ", urls.get(0).text);
+                Log.d("url : ", urls.get(0).url);
+                Log.d("text : ", urls.get(1).text);
+                Log.d("url : ", urls.get(1).url);
             }
         });
     }

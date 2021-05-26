@@ -95,30 +95,26 @@ public class RegisterActivity extends AppCompatActivity {
             //          Callback function to check data returned
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                Log.d("asd", "zczczxc");
-                Log.d("TEST : ", response.body().string());
                 if (response.body().string() == "true") {
+                    showMessage();
                     Log.d("TEST", "성공");
                 } else {
-                    Log.d("TEST", "실패");
-                }
-
 //                String resp = response.body().string();
                 Handler mHandler = new Handler(Looper.getMainLooper());
                 mHandler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
 //                            if (resp == "true") {
-                        Toast.makeText(getApplicationContext(), "회원가입 성공", Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-                        startActivity(intent);
                         Toast.makeText(getApplicationContext(), "회원가입 실패", Toast.LENGTH_LONG).show();
 //                            }
                     }
                 }, 0);
+                Log.d("TEST", "실패");
+                }
 
 
-//                type = response.body().string();
+
+
             }
         });
     }

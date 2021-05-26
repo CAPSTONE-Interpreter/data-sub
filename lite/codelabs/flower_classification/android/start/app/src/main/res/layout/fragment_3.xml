@@ -26,12 +26,6 @@
             android:textSize="20sp"/>
 
     </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_centerInParent="true"
-        android:background="#000000"
-        android:layout_marginTop="10dp"/>
 
     <ListView
 
@@ -39,6 +33,7 @@
         android:clickable="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="25dp"
         android:layout_weight="1"
         android:scrollbarFadeDuration="0"
         android:scrollbarSize="5dp"
@@ -48,15 +43,5 @@
 
 
     </ListView>
-    <Button
-        android:id="@+id/scrapButton"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn_background"
-        android:text="조회"
-        android:textSize="20sp"
-        android:layout_marginBottom="10dp"
-        android:layout_gravity="center"
-        android:textColor="#FFFFFF"
-        />
+
 </LinearLayout>

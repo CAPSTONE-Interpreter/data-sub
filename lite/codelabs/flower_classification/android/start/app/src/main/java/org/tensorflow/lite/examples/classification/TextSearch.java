@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,16 +16,15 @@ import androidx.core.view.ViewCompat;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
+
 import me.relex.circleindicator.CircleIndicator3;
-
-
 import java.util.ArrayList;
+import static org.tensorflow.lite.examples.classification.TextSearch.urls;
 
-public class    TextSearch extends AppCompatActivity {
+public class    TextSearch extends AppCompatActivity implements OnListItemClickListener {
 
-    private Button submitBtn;
+    private Button submitBtn, indexBtn;
     private ListView listView;
-    private ListViewAdapter listViewAdapter;
     static public ArrayList<SearchList> scarpList;
     static public ArrayList<SearchList> copyList;
     private CircleIndicator3 mIndicator;
@@ -33,6 +33,9 @@ public class    TextSearch extends AppCompatActivity {
     private ViewPager2 mPager;
     private FragmentStateAdapter pagerAdapter;
     private int num_page = 5;
+
+    static public int indexNum = 0;
+    static public ArrayList<URL> urls = new ArrayList<URL>(5);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,10 +49,9 @@ public class    TextSearch extends AppCompatActivity {
         scarpList.add(new SearchList("tree", "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"));
 
         listView = findViewById(R.id.scrapView);
-        listViewAdapter = new ListViewAdapter();
-        listViewAdapter.setListViewItemList2();
 
         submitBtn = findViewById(R.id.submitBtn);
+        indexBtn = findViewById(R.id.index);
 
         //ViewPager2
         mPager = findViewById(R.id.viewpager);
@@ -79,6 +81,7 @@ public class    TextSearch extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
+                indexNum = position % num_page;
                 mIndicator.animatePageSelected(position % num_page);
             }
 
@@ -103,17 +106,27 @@ public class    TextSearch extends AppCompatActivity {
                 }
             }
         });
+
+        indexBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Toast.makeText(getApplicationContext(), Integer.toString(indexNum), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), ShowActivity.class);
+                intent.putExtra("url", urls.get(indexNum).url);
+                startActivity(intent);
+            }
+        });
+
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                indexBtn.setVisibility(View.VISIBLE);
                 mPager.setAdapter(pagerAdapter);
                 mIndicator.setViewPager(mPager);
                 mIndicator.createIndicators(num_page, 0);
 
                 String sendText = textLine.getText().toString();
                 Log.d("calling", sendText);
-
                 FileUploadUtils.sendText(sendText);
 
 
@@ -137,5 +150,10 @@ public class    TextSearch extends AppCompatActivity {
 //                });
             }
         });
+    }
+
+    @Override
+    public void onItemClick(ListAdapter.ViewHolder holder, View view, int position) {
+
     }
 }
