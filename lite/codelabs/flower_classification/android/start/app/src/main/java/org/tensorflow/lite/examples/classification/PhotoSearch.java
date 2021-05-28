@@ -51,7 +51,7 @@ public class PhotoSearch extends AppCompatActivity {
                                        @Override
                                        public void onClick(View view) {
                                            Log.d("태그","보내기");
-                                           FileUploadUtils.sendImage(new File("/sdcard/DCIM/Camera/qqq.png"));
+                                           FileUploadUtils.sendImage(new File("/sdcard/DCIM/Camera/test1.png"));
                                        }
                                    }
         );

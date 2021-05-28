@@ -29,20 +29,17 @@ public class FileUploadUtils {
         Log.v("태그", "메시지");
         System.out.println(file);
 
-//        RequestBody requestBody = new MultipartBody.Builder()
-//                .setType(MultipartBody.FORM)
-//                .addFormDataPart("files", file.getName(), RequestBody.create(MultipartBody.FORM, file))
-//                .build();
-//
-//        Request request = new Request.Builder()
-//                .url("http://ec2-3-36-221-249.ap-northeast-2.compute.amazonaws.com:8080/test")
-//                .post(requestBody)
-//                .build();
+        RequestBody requestBody = new MultipartBody.Builder()
+                .setType(MultipartBody.FORM)
+                .addFormDataPart("file", file.getName(), RequestBody.create(MultipartBody.FORM, file))
+                .build();
 
         Request request = new Request.Builder()
-                .url("http://ec2-3-36-221-249.ap-northeast-2.compute.amazonaws.com:8080/videos?text=하늘")
-//                .post(requestBody):
+                .url("http://ec2-3-36-221-249.ap-northeast-2.compute.amazonaws.com:8080/videos/photo")
+//                .url("http://ec2-3-36-221-249.ap-northeast-2.compute.amazonaws.com:8080/test")
+                .post(requestBody)
                 .build();
+
 
         OkHttpClient client = new OkHttpClient();
         Log.v("태그", "pass");
@@ -63,7 +60,7 @@ public class FileUploadUtils {
     public static void sendText(String text) {
         Log.v("called", text);
         Request request = new Request.Builder()
-                .url("http://ec2-3-36-221-249.ap-northeast-2.compute.amazonaws.com:8080/videos?text="+text)
+                .url("http://ec2-3-36-221-249.ap-northeast-2.compute.amazonaws.com:8080/videos?text=" + text)
 //                .post(requestBody):q
                 .build();
         OkHttpClient client = new OkHttpClient();
@@ -134,7 +131,7 @@ public class FileUploadUtils {
     public static void sendTextMotion(String text) {
         Log.v("called", text);
         Request request = new Request.Builder()
-                .url("http://ec2-3-36-221-249.ap-northeast-2.compute.amazonaws.com:8080/translate?word="+text)
+                .url("http://ec2-3-36-221-249.ap-northeast-2.compute.amazonaws.com:8080/translate?word=" + text)
                 .build();
         OkHttpClient client = new OkHttpClient();
         Log.v("태그", "pass");

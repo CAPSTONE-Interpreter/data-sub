@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     android:background="#1A282D">
 
-<androidx.appcompat.widget.Toolbar
-    android:id="@+id/toolbar"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -16,33 +16,35 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
             android:layout_marginTop="10dp"
-            >
+            android:gravity="center"
+            android:orientation="horizontal">
 
 
             <ImageView
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:src="@drawable/image2" />
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2px"
-                android:background="#DEDADA"/>
+                android:background="#DEDADA" />
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
-<com.google.android.material.bottomnavigation.BottomNavigationView
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#25343C"
+        app:itemIconTint="@drawable/menu_selector_color"
         app:itemTextColor="#000000"
-    app:itemIconTint="@drawable/menu_selector_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:labelVisibilityMode="unlabeled"
         app:menu="@menu/menu_bottom" />
 
     <FrameLayout

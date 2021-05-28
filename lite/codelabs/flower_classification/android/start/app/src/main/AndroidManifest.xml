@@ -14,8 +14,8 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/tfe_ic_app_name"
+        android:icon="@drawable/image2"
+        android:label="수어쉬워"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:largeHeap="true"
         android:supportsRtl="true"

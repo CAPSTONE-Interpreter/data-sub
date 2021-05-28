@@ -1,6 +1,5 @@
 package org.tensorflow.lite.examples.classification;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -15,14 +14,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
-
-import org.jetbrains.annotations.NotNull;
+import static org.tensorflow.lite.examples.classification.TextSearch.urls;
 
 public class Swipe1 extends Fragment implements View.OnClickListener {
     private TextView tvName1;
-    private ImageButton imageButton1;
-    private Button button;
 
     public Swipe1() {
         // Required empty public constructor
@@ -31,31 +26,19 @@ public class Swipe1 extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_swipe1,container,false);
-        RelativeLayout l = v.findViewById(R.id.rl);
-        l.setOnClickListener(this);
-        //        final View view = inflater.inflate(R.layout.fragment_swipe1,container,false);
+        View view = inflater.inflate(R.layout.fragment_swipe1, container, false);
+        tvName1 = (TextView)view.findViewById(R.id.tvName1);
+        tvName1.setText(urls.get(0).text);
 
 
-//        button = view.findViewById(R.id.button);
-//        button.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v) {
-//                Log.d("zz","qqqq");
-//            }
-//        });
-
-
-
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_swipe1, container, false);
-
-
-
-
+        return view;
     }
 
-
+//    @Override
+//    public void onResume() {
+//        tvName1.setText(urls.get(0).text);
+//        super.onResume();
+//    }
     @Override
     public void onClick(View view) {
         Toast.makeText(getContext(), "asdasczxczx", Toast.LENGTH_SHORT).show();

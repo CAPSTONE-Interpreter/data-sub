@@ -4,11 +4,17 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import static org.tensorflow.lite.examples.classification.TextSearch.urls;
 
 public class Swipe2 extends Fragment {
+    private TextView tvName2;
+
     public Swipe2() {
         // Required empty public constructor
     }
@@ -16,7 +22,9 @@ public class Swipe2 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_swipe2, container, false);
+        View view = inflater.inflate(R.layout.fragment_swipe2, container, false);
+        tvName2 = view.findViewById(R.id.tvName2);
+        tvName2.setText(urls.get(1).text);
+        return view;
     }
 }

@@ -110,7 +110,7 @@ public class    TextSearch extends AppCompatActivity implements OnListItemClickL
         indexBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Toast.makeText(getApplicationContext(), Integer.toString(indexNum), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), urls.get(indexNum).text, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), ShowActivity.class);
                 intent.putExtra("url", urls.get(indexNum).url);
                 startActivity(intent);
@@ -120,14 +120,16 @@ public class    TextSearch extends AppCompatActivity implements OnListItemClickL
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String sendText = textLine.getText().toString();
+                Log.d("calling", sendText);
+                FileUploadUtils.sendText(sendText);
+
                 indexBtn.setVisibility(View.VISIBLE);
                 mPager.setAdapter(pagerAdapter);
                 mIndicator.setViewPager(mPager);
                 mIndicator.createIndicators(num_page, 0);
 
-                String sendText = textLine.getText().toString();
-                Log.d("calling", sendText);
-                FileUploadUtils.sendText(sendText);
+
 
 
 //                FileUploadUtils.sendText("text");
