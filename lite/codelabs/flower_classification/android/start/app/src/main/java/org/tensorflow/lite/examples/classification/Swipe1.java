@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -19,6 +20,7 @@ import android.widget.Toast;
 import org.jetbrains.annotations.NotNull;
 
 public class Swipe1 extends Fragment implements View.OnClickListener {
+    private TextView tvName1;
     private ImageButton imageButton1;
     private Button button;
 

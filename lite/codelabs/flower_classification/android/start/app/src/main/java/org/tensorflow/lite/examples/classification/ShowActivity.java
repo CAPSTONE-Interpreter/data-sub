@@ -27,7 +27,7 @@ public class ShowActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String url = intent.getStringExtra("url");
 
-        Uri videoUri = Uri.parse("http://sldict.korean.go.kr/multimedia/multimedia_files/convert/20160107/241975/MOV000254400_700X466.webm");
+        Uri videoUri = Uri.parse(url);
 
 //      컨트롤바 붙여주는 작업
         videoView.setMediaController(new MediaController(this));
