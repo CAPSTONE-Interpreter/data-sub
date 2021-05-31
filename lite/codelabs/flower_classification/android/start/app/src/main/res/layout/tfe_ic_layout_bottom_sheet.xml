@@ -110,16 +110,20 @@
 
         <Button
             android:id="@+id/addBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add">
-        </Button>
+            android:layout_width="40dp"
+            android:layout_height="35dp"
+
+            android:background="@drawable/ic_baseline_add"></Button>
+        <Button
+            android:id="@+id/deleteBtn"
+            android:layout_width="40dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_baseline_remove"></Button>
 
         <TextView
             android:id="@+id/result"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:gravity="right"
             android:hint="단어를 조합하세요"
             android:textColor="@android:color/black" />
@@ -137,6 +141,8 @@
             android:id="@+id/sendBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/btn_background"
+            android:textColor="#ffffff"
             android:text="번역하기">
         </Button>
 

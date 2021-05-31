@@ -88,7 +88,7 @@ public abstract class CameraActivity extends AppCompatActivity
     private LinearLayout bottomSheetLayout;
     private LinearLayout gestureLayout;
     private BottomSheetBehavior<LinearLayout> sheetBehavior;
-    private Button addBtn, sendBtn;
+    private Button addBtn, deleteBtn, sendBtn;
     protected TextView recognitionTextView,
             recognition1TextView,
             recognition2TextView,
@@ -109,6 +109,8 @@ public abstract class CameraActivity extends AppCompatActivity
 
     private Device device = Device.CPU;
     private int numThreads = -1;
+
+    public static String addText;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -180,6 +182,7 @@ public abstract class CameraActivity extends AppCompatActivity
                 });
 
         addBtn = findViewById(R.id.addBtn);
+        deleteBtn = findViewById(R.id.deleteBtn);
         sendBtn = findViewById(R.id.sendBtn);
         result = findViewById(R.id.result);
 //        resultView = findViewById(R.id.resultView);
@@ -196,13 +199,26 @@ public abstract class CameraActivity extends AppCompatActivity
                 result.append(recognitionTextView.getText());
             }
         });
+        deleteBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                result.setText("");
+            }
+        });
         sendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String sendText = result.getText().toString();
-
                 Log.d("태그", sendText);
                 FileUploadUtils.sendTextMotion(sendText);
+//                result.setText(addText);
+                Handler mHandler = new Handler();
+                mHandler.postDelayed(new Runnable()  {
+                    public void run() {
+                        Toast.makeText(getApplicationContext(),addText, Toast.LENGTH_LONG).show();
+                    }
+                }, 300);
+
             }
         });
 

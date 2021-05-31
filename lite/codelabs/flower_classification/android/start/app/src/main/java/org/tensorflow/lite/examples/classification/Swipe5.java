@@ -23,7 +23,7 @@ public class Swipe5 extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_swipe5, container, false);
         tvName5 = view.findViewById(R.id.tvName5);
-//        tvName5.setText(urls.get(4).text);
+        tvName5.setText(urls.get(4).text);
         return view;
     }
 }

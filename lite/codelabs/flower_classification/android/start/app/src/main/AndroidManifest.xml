@@ -8,27 +8,29 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-feature android:name="android.hardware.camera"
+
+    <uses-feature
+        android:name="android.hardware.camera"
         android:required="true" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <application
         android:allowBackup="true"
+        android:hardwareAccelerated="true"
         android:icon="@drawable/image2"
         android:label="수어쉬워"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:hardwareAccelerated="true"
-        android:theme="@style/AppTheme.ImageClassification">
-        <activity android:name=".TextSearch"></activity>
+        android:theme="@style/AppTheme.ImageClassification"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".ResultActivity"></activity>
+        <activity android:name=".TextSearch" />
         <activity android:name=".ShowActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".PhotoSearch" />
         <activity android:name=".MainActivity" />
         <activity android:name=".HomeActivity" />
-
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,8 +41,7 @@
         <activity
             android:name=".ClassifierActivity"
             android:label="@string/tfe_ic_app_name"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
