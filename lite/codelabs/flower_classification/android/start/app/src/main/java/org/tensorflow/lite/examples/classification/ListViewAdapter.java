@@ -1,6 +1,7 @@
 package org.tensorflow.lite.examples.classification;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,12 +41,13 @@ public long getItemId(int position){
 }
 
 @Override
-public android.view.View getView(final int position, android.view.View convertView, ViewGroup parent){
+public View getView(final int position, android.view.View convertView, ViewGroup parent){
     final int pos = position;
     final Context context = parent.getContext();
     thisContext = context;
 
     if(number == 0) {
+        System.out.println("1");
         // "listview_item" Layout을 inflate하여 convertView 참조 획득.
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -60,11 +62,15 @@ public android.view.View getView(final int position, android.view.View convertVi
                 notifyDataSetChanged();
             }
         });
+        System.out.println("2");
+
         // 화면에 표시될 View(Layout이 inflate된)으로부터 위젯에 대한 참조 획득
         android.widget.TextView textView = (android.widget.TextView) convertView.findViewById(R.id.textView);
         android.widget.TextView textView2 = (android.widget.TextView) convertView.findViewById(R.id.textView2);
         // Data Set(filteredItemList)에서 position에 위치한 데이터 참조 획득
         SearchList searchListViewItem = listViewItemSearchList.get(position);
+
+        System.out.println("3");
 
         textView.setText(searchListViewItem.getText());
 //        textView2.setText(searchListViewItem.getUrl());
@@ -77,19 +83,16 @@ public android.view.View getView(final int position, android.view.View convertVi
         }
         // 화면에 표시될 View(Layout이 inflate된)으로부터 위젯에 대한 참조 획득
         android.widget.TextView textView = (android.widget.TextView) convertView.findViewById(R.id.textView);
-        android.widget.TextView textView2 = (android.widget.TextView) convertView.findViewById(R.id.textView2);
         // Data Set(filteredItemList)에서 position에 위치한 데이터 참조 획득
         SearchList searchListViewItem = listViewItemSearchList.get(position);
-
         textView.setText(searchListViewItem.getText());
-//        textView2.setText(searchListViewItem.getUrl());
     }
     return convertView;
 }
 
 public void setListViewItemList(){
     listViewItemSearchList = new ArrayList<>(scarpList);
-    number = 0;
+    number = 1;
 }
 
 public void setListViewItemList2(){

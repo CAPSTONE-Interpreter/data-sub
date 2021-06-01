@@ -5,6 +5,7 @@
         android:id="@+id/action1"
         android:enabled="true"
         android:icon="@drawable/home"
+        android:iconTint="#ffffff"
         android:title="홈"
         />
 
@@ -13,12 +14,14 @@
         android:id="@+id/action3"
         android:enabled="true"
         android:icon="@drawable/heart"
+        android:iconTint="#ffffff"
         android:title="파일"/>
 
     <item
         android:id="@+id/action4"
         android:enabled="true"
         android:icon="@drawable/fragemypage"
+        android:iconTint="#ffffff"
         android:title="마이페이지"/>
 
 </menu>

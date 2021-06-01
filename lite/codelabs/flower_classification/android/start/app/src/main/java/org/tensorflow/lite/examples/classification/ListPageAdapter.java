@@ -13,7 +13,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
-import static org.tensorflow.lite.examples.classification.TextSearch.scarpList;
 import static org.tensorflow.lite.examples.classification.TextSearch.indexNum;
 
 

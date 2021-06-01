@@ -110,9 +110,10 @@ public class PhotoSearch extends AppCompatActivity {
         indexBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Toast.makeText(getApplicationContext(), urls.get(indexNum).text, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), urls.get(indexNum).text, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), ShowActivity.class);
                 intent.putExtra("url", urls.get(indexNum).url);
+                intent.putExtra("id", urls.get(indexNum).id);
                 startActivity(intent);
             }
         });

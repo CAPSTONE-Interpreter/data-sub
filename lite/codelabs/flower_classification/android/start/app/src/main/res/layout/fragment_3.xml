@@ -10,25 +10,24 @@
         android:orientation="vertical" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="center">
+        android:layout_marginTop="5dp"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="스크랩 목록"
-            android:fontFamily="@font/bmdohyeon"
-            android:textColor="#ffffff"
-            android:layout_gravity="center"
-            android:textStyle="bold"
-            android:textSize="20sp"/>
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@fnt/bmdohyeon"
+            android:text="스크랩 항목"
+            android:textColor="@android:color/white"
+            android:textFontWeight="700"
+            android:textSize="25dp" />
 
     </LinearLayout>
 
     <ListView
-
         android:id="@+id/scrapView"
         android:clickable="true"
         android:layout_width="match_parent"
@@ -39,9 +38,14 @@
         android:scrollbarSize="5dp"
         android:scrollbarThumbVertical="@android:color/darker_gray"
         android:scrollbars="vertical">
-
-
-
     </ListView>
-
+<!--<Button-->
+<!--    android:id="@+id/getScrap"-->
+<!--    android:layout_width="150dp"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:background="@drawable/custom_button3"-->
+<!--    android:text="조회"-->
+<!--    android:layout_gravity="center"-->
+<!--    android:layout_marginBottom="10dp"-->
+<!--    />-->
 </LinearLayout>

@@ -90,11 +90,11 @@ public class FileUploadUtils {
                     Log.d("length: ", Integer.toString(jsonArray.length()));
 //                    num_page2 = jsonArray.length();
 
-                    urls.add(new URL(jsonArray2.getJSONObject(0).getString("title"), jsonArray2.getJSONObject(0).getString("url")));
-                    urls.add(new URL(jsonArray3.getJSONObject(0).getString("title"), jsonArray3.getJSONObject(0).getString("url")));
-                    urls.add(new URL(jsonArray4.getJSONObject(0).getString("title"), jsonArray4.getJSONObject(0).getString("url")));
-                    urls.add(new URL(jsonArray5.getJSONObject(0).getString("title"), jsonArray5.getJSONObject(0).getString("url")));
-                    urls.add(new URL(jsonArray6.getJSONObject(0).getString("title"), jsonArray6.getJSONObject(0).getString("url")));
+                    urls.add(new URL(jsonArray2.getJSONObject(0).getString("id"), jsonArray2.getJSONObject(0).getString("title"), jsonArray2.getJSONObject(0).getString("url")));
+                    urls.add(new URL(jsonArray3.getJSONObject(0).getString("id"), jsonArray3.getJSONObject(0).getString("title"), jsonArray3.getJSONObject(0).getString("url")));
+                    urls.add(new URL(jsonArray4.getJSONObject(0).getString("id"), jsonArray4.getJSONObject(0).getString("title"), jsonArray4.getJSONObject(0).getString("url")));
+                    urls.add(new URL(jsonArray5.getJSONObject(0).getString("id"), jsonArray5.getJSONObject(0).getString("title"), jsonArray5.getJSONObject(0).getString("url")));
+                    urls.add(new URL(jsonArray6.getJSONObject(0).getString("id"), jsonArray6.getJSONObject(0).getString("title"), jsonArray6.getJSONObject(0).getString("url")));
                     Log.d("TEST : ", strJsonOutput);
                     Log.d("text : ", urls.get(0).text);
                     Log.d("url : ", urls.get(0).url);
@@ -177,12 +177,13 @@ public class FileUploadUtils {
                     JSONArray jsonArray = new JSONArray(strJsonOutput);
                     Log.d("length: ", Integer.toString(jsonArray.length()));
 //                    num_page = jsonArray.length();
-                    urls.add(new URL(jsonArray.getJSONObject(0).getString("title"), jsonArray.getJSONObject(0).getString("url")));
-                    urls.add(new URL(jsonArray.getJSONObject(1).getString("title"), jsonArray.getJSONObject(1).getString("url")));
-                    urls.add(new URL(jsonArray.getJSONObject(2).getString("title"), jsonArray.getJSONObject(2).getString("url")));
-                    urls.add(new URL(jsonArray.getJSONObject(3).getString("title"), jsonArray.getJSONObject(3).getString("url")));
-                    urls.add(new URL(jsonArray.getJSONObject(4).getString("title"), jsonArray.getJSONObject(4).getString("url")));
+                    urls.add(new URL(jsonArray.getJSONObject(0).getString("id"), jsonArray.getJSONObject(0).getString("title"), jsonArray.getJSONObject(0).getString("url")));
+                    urls.add(new URL(jsonArray.getJSONObject(1).getString("id"), jsonArray.getJSONObject(1).getString("title"), jsonArray.getJSONObject(1).getString("url")));
+                    urls.add(new URL(jsonArray.getJSONObject(2).getString("id"), jsonArray.getJSONObject(2).getString("title"), jsonArray.getJSONObject(2).getString("url")));
+                    urls.add(new URL(jsonArray.getJSONObject(3).getString("id"), jsonArray.getJSONObject(3).getString("title"), jsonArray.getJSONObject(3).getString("url")));
+                    urls.add(new URL(jsonArray.getJSONObject(4).getString("id"), jsonArray.getJSONObject(4).getString("title"), jsonArray.getJSONObject(4).getString("url")));
                     Log.d("TEST : ", strJsonOutput);
+                    Log.d("id : ", urls.get(0).id);
                     Log.d("text : ", urls.get(0).text);
                     Log.d("url : ", urls.get(0).url);
                     Log.d("text : ", urls.get(1).text);

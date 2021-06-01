@@ -7,21 +7,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btnImageSend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#25343C"
-        android:layout_marginTop="20dp"
-        android:textColor="#ffffff"
-        android:layout_y="681dp"
-        android:text="보내기" />
-
-
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginTop="20dp"
         >
 
     <Button
@@ -44,6 +34,17 @@
             android:text="사진 촬영"
             />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnImageSend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#25343C"
+        android:layout_marginTop="20dp"
+        android:textColor="#ffffff"
+        android:layout_y="681dp"
+        android:text="보내기" />
+
 
     <RelativeLayout
         android:layout_width="wrap_content"

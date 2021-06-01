@@ -15,18 +15,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.ViewCompat;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
-
-
 import me.relex.circleindicator.CircleIndicator3;
 import java.util.ArrayList;
-import static org.tensorflow.lite.examples.classification.TextSearch.urls;
 
 public class    TextSearch extends AppCompatActivity implements OnListItemClickListener {
 
     private Button submitBtn, indexBtn;
-    private ListView listView;
-    static public ArrayList<SearchList> scarpList;
-    static public ArrayList<SearchList> copyList;
     private CircleIndicator3 mIndicator;
     private EditText textLine;
 
@@ -44,11 +38,8 @@ public class    TextSearch extends AppCompatActivity implements OnListItemClickL
 
         textLine = findViewById(R.id.textLine);
 
-        scarpList = new ArrayList<>();
-        scarpList.add(new SearchList("water", "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"));
-        scarpList.add(new SearchList("tree", "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"));
 
-        listView = findViewById(R.id.scrapView);
+
 
         submitBtn = findViewById(R.id.submitBtn);
         indexBtn = findViewById(R.id.index);
@@ -110,9 +101,9 @@ public class    TextSearch extends AppCompatActivity implements OnListItemClickL
         indexBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Toast.makeText(getApplicationContext(), urls.get(indexNum).text, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), ShowActivity.class);
                 intent.putExtra("url", urls.get(indexNum).url);
+                intent.putExtra("id", urls.get(indexNum).id);
                 startActivity(intent);
             }
         });
