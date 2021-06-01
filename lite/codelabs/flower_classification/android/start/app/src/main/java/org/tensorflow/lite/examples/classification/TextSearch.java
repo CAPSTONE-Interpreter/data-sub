@@ -32,7 +32,7 @@ public class    TextSearch extends AppCompatActivity implements OnListItemClickL
 
     private ViewPager2 mPager;
     private FragmentStateAdapter pagerAdapter;
-    private int num_page = 5;
+    static public int num_page = 5;
 
     static public int indexNum = 0;
     static public ArrayList<URL> urls = new ArrayList<URL>(5);

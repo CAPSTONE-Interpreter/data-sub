@@ -24,6 +24,8 @@ import okhttp3.Response;
 import static android.os.Looper.getMainLooper;
 import static org.tensorflow.lite.examples.classification.TextSearch.urls;
 import static org.tensorflow.lite.examples.classification.CameraActivity.addText;
+import static org.tensorflow.lite.examples.classification.TextSearch.num_page;
+import static org.tensorflow.lite.examples.classification.PhotoSearch.num_page2;
 import static org.tensorflow.lite.examples.classification.PhotoSearch.image_urls;
 
 
@@ -56,7 +58,57 @@ public class FileUploadUtils {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 final String strJsonOutput = response.body().string();
-Log.d("photo: ", strJsonOutput);
+                urls.clear();
+                Log.d("photo: ", strJsonOutput);
+                JSONArray jsonArray = null;
+                try {
+                    jsonArray = new JSONArray(strJsonOutput);
+                    Log.d("photo2: ", jsonArray.getJSONObject(0).getString("result"));
+
+                    String strJsonOutput2 = jsonArray.getJSONObject(0).getString("result");
+                    JSONArray jsonArray2 = new JSONArray(strJsonOutput2);
+                    String strJsonOutput3 = jsonArray.getJSONObject(1).getString("result");
+                    JSONArray jsonArray3 = new JSONArray(strJsonOutput3);
+                    String strJsonOutput4 = jsonArray.getJSONObject(2).getString("result");
+                    JSONArray jsonArray4 = new JSONArray(strJsonOutput4);
+                    String strJsonOutput5 = jsonArray.getJSONObject(3).getString("result");
+                    JSONArray jsonArray5 = new JSONArray(strJsonOutput5);
+                    String strJsonOutput6 = jsonArray.getJSONObject(4).getString("result");
+                    JSONArray jsonArray6 = new JSONArray(strJsonOutput6);
+
+                    Log.d("photo3: ", jsonArray2.getJSONObject(0).getString("title"));
+                    Log.d("photo3: ", jsonArray2.getJSONObject(0).getString("url"));
+                    Log.d("photo3: ", jsonArray2.getJSONObject(0).getString("title"));
+                    Log.d("photo3: ", jsonArray3.getJSONObject(0).getString("url"));
+                    Log.d("photo3: ", jsonArray2.getJSONObject(0).getString("title"));
+                    Log.d("photo3: ", jsonArray4.getJSONObject(0).getString("url"));
+                    Log.d("photo3: ", jsonArray2.getJSONObject(0).getString("title"));
+                    Log.d("photo3: ", jsonArray5.getJSONObject(0).getString("url"));
+                    Log.d("photo3: ", jsonArray2.getJSONObject(0).getString("title"));
+                    Log.d("photo3: ", jsonArray6.getJSONObject(0).getString("url"));
+
+                    Log.d("length: ", Integer.toString(jsonArray.length()));
+//                    num_page2 = jsonArray.length();
+
+                    urls.add(new URL(jsonArray2.getJSONObject(0).getString("title"), jsonArray2.getJSONObject(0).getString("url")));
+                    urls.add(new URL(jsonArray3.getJSONObject(0).getString("title"), jsonArray3.getJSONObject(0).getString("url")));
+                    urls.add(new URL(jsonArray4.getJSONObject(0).getString("title"), jsonArray4.getJSONObject(0).getString("url")));
+                    urls.add(new URL(jsonArray5.getJSONObject(0).getString("title"), jsonArray5.getJSONObject(0).getString("url")));
+                    urls.add(new URL(jsonArray6.getJSONObject(0).getString("title"), jsonArray6.getJSONObject(0).getString("url")));
+                    Log.d("TEST : ", strJsonOutput);
+                    Log.d("text : ", urls.get(0).text);
+                    Log.d("url : ", urls.get(0).url);
+                    Log.d("text : ", urls.get(1).text);
+                    Log.d("url : ", urls.get(1).url);
+                    Log.d("text : ", urls.get(2).text);
+                    Log.d("url : ", urls.get(2).url);
+                    Log.d("text : ", urls.get(3).text);
+                    Log.d("url : ", urls.get(3).url);
+                    Log.d("text : ", urls.get(4).text);
+                    Log.d("url : ", urls.get(4).url);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
 //                try {
 //                    JSONArray jsonArray = new JSONArray(strJsonOutput);
@@ -119,10 +171,12 @@ Log.d("photo: ", strJsonOutput);
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 final String strJsonOutput = response.body().string();
-
+                urls.clear();
 
                 try {
                     JSONArray jsonArray = new JSONArray(strJsonOutput);
+                    Log.d("length: ", Integer.toString(jsonArray.length()));
+//                    num_page = jsonArray.length();
                     urls.add(new URL(jsonArray.getJSONObject(0).getString("title"), jsonArray.getJSONObject(0).getString("url")));
                     urls.add(new URL(jsonArray.getJSONObject(1).getString("title"), jsonArray.getJSONObject(1).getString("url")));
                     urls.add(new URL(jsonArray.getJSONObject(2).getString("title"), jsonArray.getJSONObject(2).getString("url")));

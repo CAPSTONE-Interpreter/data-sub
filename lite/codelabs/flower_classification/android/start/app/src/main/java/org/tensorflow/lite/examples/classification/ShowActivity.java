@@ -5,7 +5,10 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
+import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.VideoView;
@@ -17,15 +20,32 @@ import java.util.ArrayList;
 public class ShowActivity extends AppCompatActivity {
 
     private VideoView videoView;
-
+    private ImageView like;
+    private boolean flag = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show);
         videoView = findViewById(R.id.screenVideoView);
-
+        like = findViewById(R.id.like);
         Intent intent = getIntent();
         String url = intent.getStringExtra("url");
+
+        if(flag){
+            like.setImageResource(R.drawable.unlike);
+        }
+        else{
+            like.setImageResource(R.drawable.like);
+        }
+
+        like.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                flag = !flag;
+                System.out.println(flag);
+
+            }
+        });
 
         Uri videoUri = Uri.parse(url);
 

@@ -36,18 +36,19 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import me.relex.circleindicator.CircleIndicator3;
+import static org.tensorflow.lite.examples.classification.TextSearch.urls;
 
 //import io.netty.handler.codec.http.multipart.FileUpload;
 
 public class PhotoSearch extends AppCompatActivity {
 
     private ImageView imageViewSelected;
-    private Button gallery, camera, btnImageSend;
+    private Button gallery, camera, btnImageSend, indexBtn;
     private File tempSelectFile;
     private Context context;
     private ViewPager2 mPager;
     private FragmentStateAdapter pagerAdapter;
-    private int num_page = 5;
+    static public int num_page2 = 5;
     private CircleIndicator3 mIndicator;
     static public ArrayList<URL> image_urls = new ArrayList<URL>(5);
 
@@ -58,15 +59,16 @@ public class PhotoSearch extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo_search);
 
+        indexBtn = findViewById(R.id.index);
+
         btnImageSend = findViewById(R.id.btnImageSend);
         btnImageSend.setEnabled(false);
         btnImageSend.setOnClickListener(new View.OnClickListener() {
                                        @Override
                                        public void onClick(View view) {
                                            Log.d("태그","보내기");
+                                           FileUploadUtils.sendImage(new File("/sdcard/DCIM/Camera/image.png"));
                                            setPager();
-                                           FileUploadUtils.sendImage(new File("/sdcard/DCIM/Camera/test1.png"));
-
                                        }
                                    }
         );
@@ -104,17 +106,16 @@ public class PhotoSearch extends AppCompatActivity {
         }
 
         mPager = findViewById(R.id.viewpager);
-        //Adapter
 
-//        gogo = findViewById(R.id.gogo);
-//        gogo.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Toast.makeText(getApplicationContext(), "로그인 되었습니다.", Toast.LENGTH_LONG).show();
-//                Intent intent = new Intent(PhotoSearch.this, ShowActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+        indexBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Toast.makeText(getApplicationContext(), urls.get(indexNum).text, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), ShowActivity.class);
+                intent.putExtra("url", urls.get(indexNum).url);
+                startActivity(intent);
+            }
+        });
     }
 
     // 권한 요청
@@ -167,13 +168,15 @@ public class PhotoSearch extends AppCompatActivity {
 
     public void setPager(){
         imageViewSelected.setImageBitmap(null);
-        pagerAdapter = new ListPageAdapter(this, num_page);
+        pagerAdapter = new ListPageAdapter(this, num_page2);
+        indexBtn.setVisibility(View.VISIBLE);
 
         mPager.setAdapter(pagerAdapter);
 
         //Indicator
         mIndicator = findViewById(R.id.indicator);
-
+        mIndicator.setViewPager(mPager);
+        mIndicator.createIndicators(num_page2, 0);
 
         //ViewPager Setting
         mPager.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
@@ -192,8 +195,8 @@ public class PhotoSearch extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
-                indexNum = position % num_page;
-                mIndicator.animatePageSelected(position % num_page);
+                indexNum = position % num_page2;
+                mIndicator.animatePageSelected(position % num_page2);
             }
 
         });
